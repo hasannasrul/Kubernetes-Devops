@@ -1,0 +1,18 @@
+#namespace deployment
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name:  micro-dev
+
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name:  micro-stage
+
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name:  micro-prd

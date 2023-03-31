@@ -1,0 +1,23 @@
+# replica set deployment
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: rs029
+  labels:
+    name: rsapp
+spec:
+  selector:
+    matchLabels:
+      cname: nginx-webserver
+  replicas: 5
+  template:
+    metadata:
+      name: ws01
+      labels:
+        cname: nginx-webserver
+    spec:
+      containers:
+        - name: nginx
+          image: nginx
+          ports:
+            - containerPort: 80

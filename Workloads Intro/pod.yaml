@@ -1,0 +1,17 @@
+#simple pod deployment
+apiVersion: v1
+kind: Pod
+metadata:
+  name: ws01
+  labels:
+    cname: nginx-webserver
+spec:
+  containers:
+    - name: nginx-webserver
+      image: nginx
+      ports:
+        - containerPort: 80
+      resources:
+        limits:
+          memory: "128Mi"
+          cpu: "64m"

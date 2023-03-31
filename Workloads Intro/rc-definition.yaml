@@ -1,0 +1,28 @@
+# replication controller
+apiVersion: v1
+kind: ReplicationController
+metadata:
+  name: myapp-rc
+  labels:
+    app: myapp
+    type: frontend
+spec:
+  replicas: 3
+  selector:
+    cname: nginx-webserver
+  template:
+    metadata:
+      name: ws01
+      labels:
+        cname: nginx-webserver
+    spec:
+      containers:
+        - name: nginx-webserver
+          image: nginx
+          ports:
+            - containerPort: 80
+          resources:
+            limits:
+              memory: "128Mi"
+              cpu: "64m"
+  
